@@ -71,7 +71,7 @@
       finally {
           (currentBuild.result!= "ABORTED") && node("master") {
               echo "finally gets executed and end an email notification for every build"
-              //emailext body: 'Your build has been successful or unsuccessful', subject: 'Build Result', to: 'srinivasmayukh.web@gmail.com'
+              emailext body: 'Your build has been successful or unsuccessful', subject: 'Build Result', to: 'srinivasmayukh.web@gmail.com'
           }
           
 		  
