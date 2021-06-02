@@ -5,12 +5,6 @@
               def docker
               def dockerCMD
               def tagName = "1.0"
-	      environment {
-                registry = "YourDockerhubAccount/YourRepository"
-                registryCredential = 'dhub'
-                dockerImage = ''
-              }
-              
               stage('Preparation'){
                   echo "Preparing the Jenkins environment with required tools..."
                   mavenHome = tool name: 'Maven1', type: 'maven'
@@ -18,12 +12,10 @@
                   docker = tool name: 'docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
                   dockerCMD = "$docker/bin/docker"
               }
-              
               stage('git checkout'){
-		    steps {
-		       checkout changelog: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mayukh656/batch10.git']]]
-                    }
-	       }
+                   echo "Checking out the code from git repository..."
+                   git 'https://github.com/mayukh656/batch10.git'
+              }
               
               stage('Build, Test and Package'){
                   echo "Building the springboot application..."
@@ -51,11 +43,11 @@
               }
               
               stage("Push Docker Image to Docker Registry"){
-				  script {
-                     docker.withRegistry( '', registryCredential ) {
-                     dockerImage.push() 
-                     }
-                  }
+                   echo "Pushing image to docker hub"
+                   withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
+                       sh "${dockerCMD} login -u mayukh656 -p ${dockerHubPwd}"
+                       sh "${dockerCMD} push mayukh656/springboot:${tagName}"
+                   }
               }
               
               stage('Deploy Application'){
