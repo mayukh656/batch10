@@ -9,7 +9,7 @@
                   echo "Preparing the Jenkins environment with required tools..."
                   mavenHome = tool name: 'Maven1', type: 'maven'
                   mavenCMD = "${mavenHome}/bin/mvn"
-                  docker = tool name: 'docker', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
+                  docker = tool name: 'docker1', type: 'org.jenkinsci.plugins.docker.commons.tools.DockerTool'
                   dockerCMD = "$docker/bin/docker"
               }
               stage('git checkout'){
