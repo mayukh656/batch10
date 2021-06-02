@@ -4,7 +4,7 @@ try{
         def mavenCMD
         def docker
         def dockerCMD
-        def tagName = "v1.0"
+        def tagName = "1.0"
         
         stage('Preparation'){
             echo "Preparing the Jenkins environment with required tools..."
