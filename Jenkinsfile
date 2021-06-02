@@ -44,9 +44,9 @@
               
               stage("Push Docker Image to Docker Registry"){
                    echo "Pushing image to docker hub"
-		      withCredentials([usernameColonPassword(credentialsId: 'dhub', variable: 'dhub')]) {
+		      withCredentials([usernamePassword(credentialsId: 'dhub', passwordVariable: 'dhubPwd', usernameVariable: 'mycreds')]) {
 		       // withCredentials([usernamePassword(credentialsId: 'dhub', passwordVariable: 'dhub123', usernameVariable: 'mayukh656')]) {
-                       sh "${dockerCMD} login -u mayukh656 -p ${dhub}"
+                       sh "${dockerCMD} login -u mayukh656 -p ${dhubPwd}"
                        // sh "${dockerCMD} push mayukh656/springboot:${tagName}"
                    }
               }
