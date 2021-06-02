@@ -5,6 +5,11 @@
               def docker
               def dockerCMD
               def tagName = "1.0"
+	      environment {
+                registry = "YourDockerhubAccount/YourRepository"
+                registryCredential = 'dhub'
+                dockerImage = ''
+              }
               
               stage('Preparation'){
                   echo "Preparing the Jenkins environment with required tools..."
