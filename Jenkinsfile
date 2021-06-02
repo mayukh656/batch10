@@ -46,7 +46,7 @@
                    echo "Pushing image to docker hub"
                    withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
                        sh "${dockerCMD} login -u mayukh656 -p ${dockerHubPwd}"
-                       sh "${dockerCMD} push mayukh656/springboot:${tagName}"
+                       // sh "${dockerCMD} push mayukh656/springboot:${tagName}"
                    }
               }
               
