@@ -54,7 +54,7 @@
                   echo "Installing desired software.."
                   echo "Bring docker service up and running"
                   echo "Deploying springboot application"
-                  ansiblePlaybook credentialsId: 'ssh', disableHostKeyChecking: true, installation: 'ansible 2.9.22', inventory: '/etc/ansible/hosts', playbook: 'deploy-playbook.yml'
+		  ansiblePlaybook credentialsId: '703a4ec3-4a11-4e97-bb64-14e8644f36ad', disableHostKeyChecking: true, installation: 'ansible 2.9.22', inventory: '/etc/ansible/hosts', playbook: 'deploy-playbook.yml'		      
               }
               
               stage('Clean up'){
