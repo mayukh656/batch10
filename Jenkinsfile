@@ -20,9 +20,10 @@
               }
               
               stage('git checkout'){
-                  echo "Checking out the code from git repository..."
-                  git 'https://github.com/mayukh656/batch10.git'
-              }
+		    steps {
+		       checkout changelog: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mayukh656/batch10.git']]]
+                    }
+	       }
               
               stage('Build, Test and Package'){
                   echo "Building the springboot application..."
