@@ -1,10 +1,3 @@
-pipeline{
-agent any
-  environment {
-  registry = "mayukh656/springboot"
-  registryCredential = 'dhub'
-  dockerImage = ''
-     }
       try{
           node{
               def mavenHome
@@ -85,4 +78,3 @@ agent any
           
 		  
       }
-	}
