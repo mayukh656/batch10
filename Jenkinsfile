@@ -40,7 +40,7 @@ try{
         }
         
         stage('Build Docker Image'){
-            echo "Building docker image for addressbook application ..."
+            echo "Building docker image for springboot application ..."
             sh "${dockerCMD} build -t mayukh656/springboot:${tagName} ."
         }
         
