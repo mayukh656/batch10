@@ -46,7 +46,7 @@ try{
         
         stage("Push Docker Image to Docker Registry"){
             echo "Pushing image to docker hub"
-            withCredentials([string(credentialsId: 'dockerPwd', variable: 'dockerHubPwd')]) {
+            withCredentials([string(credentialsId: 'dockerHubPwd', variable: 'dockerHubPwd')]) {
             sh "${dockerCMD} login -u mayukh656 -p ${dockerHubPwd}"
             sh "${dockerCMD} push mayukh656/springboot:${tagName}"
             }
