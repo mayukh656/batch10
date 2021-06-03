@@ -21,6 +21,31 @@
 			</arguments>
 		</buildCommand>
 	</buildSpec>
+	<build>
+              <plugins>
+	           <plugin>
+	               <groupId>org.apache.maven.plugins</groupId>
+	               <artifactId>maven-surefire-plugin</artifactId>
+	               <version>3.0.0-M4</version>
+	           </plugin>
+        
+	           <plugin>
+	               <groupId>org.apache.maven.plugins</groupId>
+	               <artifactId>maven-site-plugin</artifactId>
+	               <version>3.7.1</version>
+	           </plugin>
+               </plugins>
+         </build>
+
+        <reporting>
+            <plugins>
+	         <plugin>
+	      		<groupId>org.apache.maven.plugins</groupId>
+	    		<artifactId>maven-site-plugin</artifactId>
+	    		<version>3.7.1</version>
+		</plugin>
+   	   </plugins>
+       </reporting>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
