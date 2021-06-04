@@ -20,6 +20,7 @@ try{
          stage('Build, Test and Package'){
             echo "Building the springboot application..."
             sh "${mavenCMD} clean package"
+		 sh "${mavenCMD} site"
          }
               
          stage('Sonar Scan'){
