@@ -68,12 +68,12 @@ try{
 catch(Exception err){
      echo "Exception occured..."
      currentBuild.result="FAILURE"
-          //send an failure email notification to the user.
+     emailext body: 'Your build has been unsuccessful', subject: 'Jenkins Mail', to: 'jetscmlearning@gmail.com'
 }
 finally {
      (currentBuild.result!= "ABORTED") && node("master") {
       echo "finally gets executed and end an email notification for every build"
-      emailext body: 'Your build has been successful or unsuccessful', subject: 'Jenkins Mail', to: 'jet.scmlearning@gmail.com'
+      emailext body: 'Your build has been successful', subject: 'Jenkins Mail', to: 'jet.scmlearning@gmail.com'
           }
 }
 
