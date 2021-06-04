@@ -31,6 +31,7 @@ try{
      
           stage('Integration test'){
              echo "Executing Regression Test Suits..."
+		  appscan application: '', credentials: 'APPSCAN', name: 'Appscan_results', scanner: dynamic_analyzer(hasOptions: false, optimization: 'Fast', scanType: 'Staging', target: 'http://34.70.171.246:8888/'), type: 'Dynamic Analyzer'
                   // command to execute selenium test suits
           }
               
