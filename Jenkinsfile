@@ -73,7 +73,7 @@ catch(Exception err){
 finally {
      (currentBuild.result!= "ABORTED") && node("master") {
       echo "finally gets executed and end an email notification for every build"
-      emailext body: 'Your build has been successful or unsuccessful', subject: 'Jenkins Mail', to: 'jetscmlearning@gmail.com'
+      emailext body: 'Your build has been successful or unsuccessful', subject: 'Jenkins Mail', to: 'jet.scmlearning@gmail.com'
           }
 }
 
