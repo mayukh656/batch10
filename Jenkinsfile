@@ -1,5 +1,5 @@
 try{
-    node{
+     node{
         def mavenHome
         def mavenCMD
         def docker
